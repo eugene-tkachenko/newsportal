@@ -1,0 +1,19 @@
+<div class="modal fade" id="sign_in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="app-cross">
+  <h2>SIGN IN</h2>
+    <%= form_for(User.new, url: session_path(:user), html: {:'data-type' => 'json'}, remote: true) do |f| %>
+        <%= f.text_field :email, autofocus: true, value: 'E-mail address', onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'E-mail address';}" %>
+        <%= f.password_field :password, value: 'Password',  onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Password';}" %><br>
+        <div id="remember_me">
+        <%= f.label "Remember me?"%>
+        <%= f.check_box :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+        </div>
+        <%= f.submit "Sign in" %><br>
+      <h3><a href="#">Forgot Password ?</a></h3>
+      <h3><a href="#sign_up" data-dismiss='modal' data-toggle='modal'> Sign Up</a></h3>
+<% end %>
+  <!--<div class="buttons">-->
+    <!--<a href="#" class="hvr-shutter-in-vertical">Sign in with Twitter</a>-->
+  <!--</div>-->
+  </div>
+</div>
