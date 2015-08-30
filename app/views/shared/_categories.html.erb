@@ -1,0 +1,14 @@
+<div class="cat-list">
+  <div class="list-group">
+    <a href="#" class="list-group-item disabled">
+      Categories
+    </a>
+    <% Category.all.each do |category| %>
+        <a href="#" class="list-group-item">
+          <span class="badge">15</span>
+          <%= category.name %>
+
+        </a>
+    <% end %>
+  </div>
+</div>
