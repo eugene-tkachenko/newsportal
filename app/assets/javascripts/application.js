@@ -16,3 +16,18 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+    setTimeout(function() {
+        $("#notice_wrapper, #error_wrapper").fadeOut("slow", function() {
+            $(this).remove();
+        })
+    }, 2500 );
+});
+
+//When we click on Logo -> Navigating on root path -> reload page to reload masonry elements
+$(document).ready(function(){
+    $(".navbar-brand").on("click", function(){
+        window.location.href = '/';
+    })
+})

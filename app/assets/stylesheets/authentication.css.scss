@@ -1,4 +1,4 @@
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
 ol,ul{list-style:none;margin:0px;padding:0px;}
 blockquote,q{quotes:none;}
@@ -68,7 +68,7 @@ body a{
 .cross {
   padding: 1em 0;
 }
-form {
+.app-cross form {
   padding: 3% 3% 10% 3%;
   background: #fff;
   border-bottom-left-radius: 0.4em;
@@ -120,7 +120,7 @@ form {
   transition: all 0.3s;
   background: url(image_path('arrow.png')) no-repeat 364px 17px #92c622;
 }
-input[type="submit"]:hover{
+.app-cross input[type="submit"]:hover{
   border-top:6px solid #1ab2e8;
   border-bottom:6px solid #1ab2e8;
   color: #fff;
@@ -230,7 +230,7 @@ a.hvr-shutter-in-vertical:hover:before, a.hvr-shutter-in-vertical:focus:before, 
   .app-cross input[type="submit"]{
     background: url(image_path('arrow.png')) no-repeat 344px 17px #92c622;
   }
-  input[type="submit"]:hover{
+  .app-cross input[type="submit"]:hover{
     background: url(image_path('arrow.png')) no-repeat 23px 17px #92c622;
 
   }
@@ -248,7 +248,7 @@ a.hvr-shutter-in-vertical:hover:before, a.hvr-shutter-in-vertical:focus:before, 
   .app-cross input[type="submit"]{
     background: url(image_path('arrow.png')) no-repeat 327px 17px #92c622;
   }
-  input[type="submit"]:hover{
+  .app-cross input[type="submit"]:hover{
     background: url(image_path('arrow.png')) no-repeat 23px 17px #92c622;
 
   }
@@ -313,7 +313,7 @@ a.hvr-shutter-in-vertical:hover:before, a.hvr-shutter-in-vertical:focus:before, 
   .new h3 a,.new h4 {
     font-size: 0.95em;
   }
-  form {
+  .app-cross form {
     width: 94%;
     margin: 0 auto;
   }
@@ -352,7 +352,7 @@ a.hvr-shutter-in-vertical:hover:before, a.hvr-shutter-in-vertical:focus:before, 
     background: url(image_path('arrow.png')) no-repeat 255px 13px #92c622;
     background-size: 6%;
   }
-  input[type="submit"]:hover{
+  .app-cross input[type="submit"]:hover{
     background: url(image_path('arrow.png')) no-repeat 23px 13px #92c622;
     background-size: 6%;
 
@@ -389,7 +389,7 @@ a.hvr-shutter-in-vertical:hover:before, a.hvr-shutter-in-vertical:focus:before, 
     font-size: 0.8em;
     line-height: 1.7em;
   }
-  .submit {
+  .app-cross .submit {
     margin: 0.5em 0;
   }
   .app-cross input[type="submit"] {
@@ -398,7 +398,7 @@ a.hvr-shutter-in-vertical:hover:before, a.hvr-shutter-in-vertical:focus:before, 
     background: url(image_path('arrow.png')) no-repeat 189px 9px #92c622;
     background-size: 7%;
   }
-  input[type="submit"]:hover{
+  .app-cross input[type="submit"]:hover{
     background: url(image_path('arrow.png')) no-repeat 23px 9px #92c622;
     background-size: 7%;
 
@@ -415,7 +415,7 @@ a.hvr-shutter-in-vertical:hover:before, a.hvr-shutter-in-vertical:focus:before, 
     background: url(image_path('icons.png')) no-repeat 16px -28px #ffffff;
     background-size: 8%;
   }
-  form {
+  .app-cross form {
     width: 100%;
     margin: 0 auto;
     padding: 3% 8% 10% 6%;

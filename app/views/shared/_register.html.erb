@@ -1,13 +1,16 @@
 <div class="modal fade" id="sign_up" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="app-cross">
     <h2>SIGN UP</h2>
-    <form>
-      <input type="text" class="text" value="E-mail address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail address';}" >
-      <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-      <div class="submit"><input type="submit" onclick="myFunction()" value="Sign in" ></div>
-      <h3><a href="#">Forgot Password ?</a></h3>
-      <h3><a href="#"> Sign Up</a></h3>
-    </form>
+    <%= simple_form_for(User.new, url: registration_path(:user), html: {id: 'sign_up_user', :'data-type' => 'json'}, remote: true) do |f| %>
+        <%= f.text_field :email, required: true, autofocus: true, value: 'E-mail address', onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'E-mail address';}" %><br>
+        <%= f.password_field :password, required: true, value: 'Password',  onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Password';}" %><br>
+        <%= f.password_field :password_confirmation, required: true, value: 'Password',  onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Password';}" %><br><br>
+        <%= f.submit "Sign Up" %><br>
+        <!--<h3><a href="#">Forgot Password ?</a></h3>-->
+        <h3><a href="#sign_in" data-dismiss='modal' data-toggle='modal'> Sign In</a></h3>
+    <% end %>
+    <ul class="list-group">
+    </ul>
     <!--<div class="buttons">-->
     <!--<a href="#" class="hvr-shutter-in-vertical">Sign in with Twitter</a>-->
     <!--</div>-->
