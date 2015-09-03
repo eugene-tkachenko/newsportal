@@ -31,3 +31,8 @@ $(document).ready(function(){
         window.location.href = '/';
     })
 })
+
+$(document).ready(function() {
+    $(".previous_page").remove();
+    $(".next_page").html('<a class="btn btn-info btn-lg older"> <i class="fa fa-angle-left"></i> &nbsp;SEE OLD NEWS </a>');
+});

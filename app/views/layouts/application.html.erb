@@ -83,8 +83,8 @@
 
         <div class="form-group">
           <%= simple_form_for(MailSubscription.new) do |f| %>
-          <%=f.text_field :email, placeholder: 'Enter Your Email Here', class: 'form-control' %><br>
-          <%= f.submit 'SUBSCRIBE NOW ', class: 'btn btn-info btn-lg btn-block'%>
+              <%= f.text_field :email, placeholder: 'Enter Your Email Here', class: 'form-control' %><br>
+              <%= f.submit 'SUBSCRIBE NOW ', class: 'btn btn-info btn-lg btn-block' %>
           <% end %>
         </div>
       </div>
@@ -121,13 +121,19 @@
       </div>
 
       <!-- SIDEBAR SECTION END -->
-
-      <%= yield %>
     </div>
-    <footer>
-      &copy 2015 WhatsNew | by <a href="#" target="_blank">Eugene Tkachenko</a>
-    </footer>
+    <div class="col-md-9 articles_list">
+      <%= render 'shared/articles' %>
+    </div>
+    <div id="article_pagination">
+      <%= will_paginate @articles, :page_links => false %>
+    </div>
+    <%= yield %>
   </div>
+  <footer>
+    &copy 2015 WhatsNew | by <a href="#" target="_blank">Eugene Tkachenko</a>
+  </footer>
+</div>
 </div>
 </body>
 </html>
