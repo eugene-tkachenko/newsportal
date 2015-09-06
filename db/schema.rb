@@ -11,15 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830174046) do
+ActiveRecord::Schema.define(version: 20150906150542) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.string   "top_image"
     t.string   "content"
     t.string   "content_image"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "main_image_file_name"
+    t.string   "main_image_content_type"
+    t.integer  "main_image_file_size"
+    t.datetime "main_image_updated_at"
   end
 
   create_table "articles_categories", id: false, force: :cascade do |t|
@@ -33,6 +37,22 @@ ActiveRecord::Schema.define(version: 20150830174046) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+
   create_table "mail_subscriptions", force: :cascade do |t|
     t.string   "email"
     t.datetime "created_at", null: false
@@ -40,18 +60,19 @@ ActiveRecord::Schema.define(version: 20150830174046) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "email",                  default: "",     null: false
+    t.string   "encrypted_password",     default: "",     null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,      null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "role",                   default: "user"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

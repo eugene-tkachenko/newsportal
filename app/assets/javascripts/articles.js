@@ -1,6 +1,3 @@
-$(function () {
-    $('.pagination a').click(function () {
-        $.get(this.href, null, null, 'script');
-        return false;
-    });
+$(document).on("ajax:before", ".pagination a", function() {
+    $(".older").html('<i class="fa fa-spinner fa-spin"></i> &nbsp;PLEASE WAIT...')
 });

@@ -15,6 +15,9 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'will_paginate'
+gem 'paperclip'
+gem 'paperclip-dropbox'
+gem 'ckeditor'
 gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'byebug'

@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery
 //= require bootstrap-sprockets
+//= require ckeditor/init
 //= require turbolinks
 //= require_tree .
 
@@ -32,7 +32,8 @@ $(document).ready(function(){
     })
 })
 
-$(document).ready(function() {
+$(document).on('ready page:load page:change', function() {
     $(".previous_page").remove();
     $(".next_page").html('<a class="btn btn-info btn-lg older"> <i class="fa fa-angle-left"></i> &nbsp;SEE OLD NEWS </a>');
+
 });

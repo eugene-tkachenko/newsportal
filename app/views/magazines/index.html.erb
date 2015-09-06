@@ -1,0 +1,6 @@
+<div class="col-md-9 articles_list">
+  <%= render 'shared/articles' %>
+</div>
+<div id="article_pagination">
+  <%= js_will_paginate @articles, :page_links => false %>
+</div>

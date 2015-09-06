@@ -1,0 +1,48 @@
+<div class="col-md-9 articles_list">
+  <%= simple_form_for ([@article, Article.new]), html: {class: "form-horizontal", multipart: true} do |f| %>
+      <fieldset>
+
+        <!-- Form Name -->
+        <legend>New Article</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-1 control-label" for="artilcetitle">Title</label>
+
+          <div class="col-md-4">
+            <%= f.input :title, required: true, label: false, input_html: {class: 'form-control input-md', placeholder: 'Article Title'} %>
+
+          </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="form-group">
+          <label class="col-md-1 control-label" for="articlecontet">Content Area</label>
+
+          <div class="col-md-4">
+            <%= f.input :content, label: false, :as => :ckeditor, :input_html => {:ckeditor => {:toolbar => 'Pure'}} %>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-1 control-label" for="filebutton">Top Image</label>
+
+          <div class="col-md-4">
+            <%= f.input :main_image, label: false, input_html: {class: 'input-file'}, as: :file %>
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-1 control-label" for=""></label>
+
+          <div class="col-md-4">
+            <%= f.button :submit, 'Create', class: 'btn btn-primary' %>
+          </div>
+        </div>
+
+      </fieldset>
+      </form>
+  <% end %>
+</div>

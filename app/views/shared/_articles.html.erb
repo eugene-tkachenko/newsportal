@@ -1,18 +1,29 @@
-<div class="blog-post">
-  <% @articles.each do |r| %>
+<% @articles.each do |r| %>
+    <div class="blog-post">
       <h1><%= r.title %>
       </h1>
-      <h4><%= r.categories.map { |category| "#{category.name}" }.join(" & ") %></h4>
-      <%= image_tag image_path("1.jpg"), class: "img-thumbnail img-responsive img-set" %>
+      <h4>
+        <% if r.categories.empty? %>
+            No Category
+        <% else %>
+            <%= r.categories.map { |category| "#{category.name}" }.join(" & ") %>
+        <% end %>
+      </h4>
+      <% if r.main_image.exists? %>
+          <%= image_tag r.main_image.url %>
+      <% else %>
+          <%= image_tag image_path("1.jpg"), class: "img-thumbnail img-responsive img-set" %>
+      <% end %>
       <div class="blog-info">
         Posted on <strong><%= r.created_at.strftime("%dh %B %Y") %> </strong>by
         <strong><a href="#">Romilx Chanqui</a></strong>
       </div>
       <div class="text-div">
-        <%= truncate(r.content.html_safe, length: 450) %>
+        <%= raw r.content.truncate(450) %>
       </div>
       <hr/>
-      <a class="btn btn-rm btn-lg" href="single.html">Read Full Story &nbsp; <i class="fa fa-angle-right"></i></a>
+      <a class="btn btn-rm btn-lg" href='<%= article_path(r) %>'>Read Full Story &nbsp;
+        <i class="fa fa-angle-right"></i></a>
       <hr/>
       <div class="blog-share">
         <a href="#" class="btn btn-social"><i class="fa fa-facebook fa-2x"></i></a>
@@ -26,6 +37,6 @@
 
         <a href="#" class="btn btn-social"><i class="fa fa-reddit fa-2x"></i></a>
       </div>
-      </div>
-      <hr/>
-  <% end %>
+    </div>
+    <hr/>
+<% end %>
