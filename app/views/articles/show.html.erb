@@ -1,6 +1,6 @@
 <div class="col-md-9">
   <div class="blog-post">
-    <h1><%= @article.title%>
+    <h1><%= @article.title %>
     </h1>
     <h4>
       <% if @article.categories.empty? %>
@@ -9,63 +9,70 @@
           <%= @article.categories.map { |category| "#{category.name}" }.join(" & ") %>
       <% end %>
     </h4>
+    <% if (current_user.role?('admin') rescue false) %>
+        <div class="admin_rigths">
+          <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: 'Are you sure?'} %>
+        </div>
+    <% end %>
     <% if @article.main_image.exists? %>
         <%= image_tag @article.main_image.url %>
     <% else %>
         <%= image_tag image_path("2.jpg"), class: "img-thumbnail img-responsive img-set" %>
     <% end %>
     <div class="blog-info">
-      Posted on  <strong><%= @article.created_at.strftime("%dth %B %Y ") %></strong>by <strong><a href="#">Romilx Chanqui</a></strong>
+      Posted on <strong><%= @article.created_at.strftime("%dth %B %Y ") %></strong>by
+      <strong><a href="#">Romilx Chanqui</a></strong>
     </div>
 
-    <hr />
+    <hr/>
     <div class="text-div-single">
       <%= raw @article.content %><br><br>
-      <hr />
+      <hr/>
       <h3>Comments :</h3>
+
       <div class="media">
         <a class="media-left" href="#">
-          <%= image_tag image_path("one.jpg"), class: "img-rounded"%>
+          <%= image_tag image_path("one.jpg"), class: "img-rounded" %>
         </a>
+
         <div class="media-body">
           <h4 class="media-heading">Media heading</h4>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+          moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
           <div class="media">
             <a class="media-left" href="#">
-              <%= image_tag image_path("two.jpg"), class: "img-rounded"%>
+              <%= image_tag image_path("two.jpg"), class: "img-rounded" %>
             </a>
+
             <div class="media-body">
               <h4 class="media-heading">Nested media heading</h4>
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+              moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+              Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+              shoreditch et.
             </div>
           </div>
         </div>
       </div>
-      <hr />
+      <hr/>
       <h3>Post Comments :</h3>
-      <input type="text" class="form-control" placeholder="Enter Email" />
-      <textarea rows="5" class="form-control" placeholder="Enter Email" ></textarea>
-      <br />
-      <a href="#"  class="btn btn-info btn-sm" >Post Comment ! </a>
+      <input type="text" class="form-control" placeholder="Enter Email"/>
+      <textarea rows="5" class="form-control" placeholder="Enter Email"></textarea>
+      <br/>
+      <a href="#" class="btn btn-info btn-sm">Post Comment ! </a>
     </div>
 
-    <hr />
+    <hr/>
     <div class="blog-share">
       <a href="#" class="btn btn-social"><i class="fa fa-facebook fa-2x"></i></a>
       <a href="#" class="btn btn-social"><i class="fa fa-twitter fa-2x"></i></a>
-
       <a href="#" class="btn btn-social"><i class="fa fa-google-plus fa-2x"></i></a>
-
-      <a href="#" class="btn btn-social"><i class="fa fa-linkedin fa-2x"></i></a>
-
-      <a href="#" class="btn btn-social"><i class="fa fa-pinterest fa-2x"></i></a>
-
-      <a href="#" class="btn btn-social"><i class="fa fa-reddit fa-2x"></i></a>
 
     </div>
   </div>
-  <hr />
-  <a href='<%= root_path %>' class="btn btn-info btn-lg"  > <i class="fa fa-angle-left" ></i> &nbsp;BACK TO HOME  </a>
+  <hr/>
+  <a href='<%= root_path %>' class="btn btn-info btn-lg"> <i class="fa fa-angle-left"></i> &nbsp;BACK TO HOME </a>
   <!-- POSTS SECTION END -->
 </div>
 </div>

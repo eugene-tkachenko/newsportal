@@ -30,6 +30,7 @@
 
           <div class="col-md-4">
             <%= f.input :main_image, label: false, input_html: {class: 'input-file'}, as: :file %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
           </div>
         </div>
 
