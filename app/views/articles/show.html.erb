@@ -21,7 +21,7 @@
     <% end %>
     <div class="blog-info">
       Posted on <strong><%= @article.created_at.strftime("%dth %B %Y ") %></strong>by
-      <strong><a href="#">Romilx Chanqui</a></strong>
+      <strong><a href="#"><%= article_author(@article)%></a></strong>
     </div>
 
     <hr/>
@@ -65,11 +65,9 @@
 
     <hr/>
     <div class="blog-share">
-      <a href="#" class="btn btn-social"><i class="fa fa-facebook fa-2x"></i></a>
-      <a href="#" class="btn btn-social"><i class="fa fa-twitter fa-2x"></i></a>
-      <a href="#" class="btn btn-social"><i class="fa fa-google-plus fa-2x"></i></a>
-
-    </div>
+      <div class="facebook shares"><a href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=<%= @article.title %>&p[url]=<%= article_url(@article) %>" class="btn btn-social"><i class="fa fa-facebook fa-2x"></i></a></div>
+      <div class="twitter shares"><a href="https://twitter.com/share?text=<%= @article.title %>" class="btn btn-social"><i class="fa fa-twitter fa-2x"></i></a></div>
+      <div class="google shares"><a href="https://plus.google.com/share?url=<%= article_url(@article) %>" class="btn btn-social"><i class="fa fa-google-plus fa-2x"></i></a></div>
   </div>
   <hr/>
   <a href='<%= root_path %>' class="btn btn-info btn-lg"> <i class="fa fa-angle-left"></i> &nbsp;BACK TO HOME </a>
