@@ -9,13 +9,15 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    @category = Category.find_by_id(params[:article][:category_ids])
     @article = Article.new(article_params)
+    @article.categories << @category
 
     if @article.save
       redirect_to :back
       flash[:notice] = "Article successfully created"
     else
-      redirect_to admin_path
+      render "admin/index"
     end
 
   end

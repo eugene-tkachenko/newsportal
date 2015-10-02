@@ -16,15 +16,13 @@
       <% end %>
       <div class="blog-info">
         Posted on <strong><%= r.created_at.strftime("%dh %B %Y") %> </strong>by
-        <strong><a href="#"><%= article_author(r)%></a></strong>
+        <strong><a href="#"><%= article_author(r) %></a></strong>
       </div>
       <div class="text-div">
         <%= raw r.content.truncate(450) %>
       </div>
-      <hr/>
       <a class="btn btn-rm btn-lg" href='<%= article_path(r) %>'>Read Full Story &nbsp;
         <i class="fa fa-angle-right"></i></a>
-      <hr/>
       <div class="blog-share">
         <div class="facebook shares"><a href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=<%= r.title %>&p[url]=<%= article_url(r) %>" class="btn btn-social"><i class="fa fa-facebook fa-2x"></i></a></div>
         <div class="twitter shares"><a href="https://twitter.com/share?text=<%= r.title %>&url=<%= article_url(r) %>" class="btn btn-social"><i class="fa fa-twitter fa-2x"></i></a></div>

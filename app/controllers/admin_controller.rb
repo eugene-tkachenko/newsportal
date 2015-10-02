@@ -2,7 +2,7 @@ class AdminController < ApplicationController
 before_action :user_admin?, only: [:index]
 
   def index
-
+    @article = Article.new
   end
 
   private
