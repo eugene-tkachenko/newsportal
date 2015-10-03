@@ -23,46 +23,8 @@
       Posted on <strong><%= @article.created_at.strftime("%dth %B %Y ") %></strong>by
       <strong><a href="#"><%= article_author(@article)%></a></strong>
     </div>
-
     <hr/>
-    <div class="text-div-single">
-      <%= raw @article.content %><br><br>
-      <hr/>
-      <h3>Comments :</h3>
-
-      <div class="media">
-        <a class="media-left" href="#">
-          <%= image_tag image_path("one.jpg"), class: "img-rounded" %>
-        </a>
-
-        <div class="media-body">
-          <h4 class="media-heading">Media heading</h4>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-          moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-          <div class="media">
-            <a class="media-left" href="#">
-              <%= image_tag image_path("two.jpg"), class: "img-rounded" %>
-            </a>
-
-            <div class="media-body">
-              <h4 class="media-heading">Nested media heading</h4>
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-              moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-              Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-              shoreditch et.
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr/>
-      <h3>Post Comments :</h3>
-      <input type="text" class="form-control" placeholder="Enter Email"/>
-      <textarea rows="5" class="form-control" placeholder="Enter Email"></textarea>
-      <br/>
-      <a href="#" class="btn btn-info btn-sm">Post Comment ! </a>
-    </div>
-
+    <%= render 'shared/comments' %>
     <hr/>
     <div class="blog-share">
       <div class="facebook shares"><a href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=<%= @article.title %>&p[url]=<%= article_url(@article) %>" class="btn btn-social"><i class="fa fa-facebook fa-2x"></i></a></div>
