@@ -1,0 +1,4 @@
+$(".articles_list").append("<%= escape_javascript(render("shared/articles")) %>");
+$("#article_pagination").html("<%= escape_javascript(js_will_paginate @articles, :page_links => false) %>");
+$(".previous_page").remove();
+$(".next_page").html('<a class="btn btn-info btn-lg older"> <i class="fa fa-angle-left"></i> &nbsp;SEE OLD NEWS </a>')

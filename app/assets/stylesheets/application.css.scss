@@ -1,0 +1,298 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+@import "bootstrap-sprockets";
+@import "font-awesome";
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro); /* FREE GOOGLE FONT */
+
+
+#notice_wrapper {
+  position: absolute;
+  top: 0;
+  margin-top: 2.5em;
+  width: 100%;
+  z-index: 999;
+  background: #74bfbb;
+  .alert, .notice {
+    padding: 2.5rem 0;
+    text-align: center;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+  }
+}
+
+#error_wrapper {
+  position: absolute;
+  top: 0;
+  margin-top: 2.5em;
+  width: 100%;
+  z-index: 999;
+  background: #bf3d3d;
+  .alert, .notice {
+    padding: 2.5rem 0;
+    text-align: center;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+  }
+}
+
+body {
+  padding-top: 70px;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #fafafa;
+}
+
+.set-tag a {
+  margin:2px;
+}
+/*===========================
+    NAVBAR STYLES
+ ============================*/
+.navbar-default {
+  background-color: #FFFFFF;
+  border-color: #F9F9F9;
+}
+
+/*===========================
+    LOGO STYLES
+ ============================*/
+.logo-div {
+  min-height: 150px;
+  padding: 10px 50px;
+}
+/*===========================
+    SIDEBAR STYLES
+ ============================*/
+/* PROFILE STYLES */
+
+.profile-wrapper {
+  overflow-x: hidden;
+  position: relative;
+}
+
+.profile-wrapper .btn {
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+}
+
+.profile-wrapper .profile-inner {
+  background-size: cover;
+  background-position: center;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  padding: 200px 0 10px;
+  background-image: url(image_path('girl-big.jpg'));
+  border: 1px solid #EAEAEA;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.profile-wrapper .small-thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto -50px;
+  display: block;
+  border: 15px solid #fff;
+}
+
+.profile-wrapper .description {
+  padding: 30px 20px 20px;
+  text-align: center;
+  border: 1px solid #EAEAEA;
+  background-color: #fff;
+}
+/* SUBSCRIBE DIV STYLE */
+.subscribe-div {
+  padding: 30px;
+  background-color: #468eae;
+  color: #fff;
+  text-align:center;
+  font-family:Verdana;
+  border-radius:5px;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+
+}
+/* CAT LIST STYLES */
+
+.cat-list  .list-group-item.disabled,.cat-list  .list-group-item.disabled:hover, .cat-list .list-group-item.disabled:focus {
+  color: #fff;
+  cursor: not-allowed;
+  background-color: #FF8C88;
+}
+.cat-list .badge {
+  background-color:#65D5AF;
+}
+.cat-list .list-group-item{
+  padding: 15px 25px;
+}
+/*===========================
+    BLOG STYLES
+ ============================*/
+.blog-post {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.blog-post h1 {
+  text-transform: uppercase;
+  line-height: 50px;
+  color: #FF8C88;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.blog-post h4 {
+  line-height: 30px;
+  padding-bottom: 30px;
+  color: #65D5AF;
+  font-size: 22px;
+}
+
+.blog-post .img-set {
+  max-height: 400px;
+  width:100%;
+}
+
+.blog-post .blog-info {
+  padding: 20px;
+  color: #65D5AF;
+  font-size: 16px;
+}
+
+.blog-post .blog-info strong {
+  color: #FF8C88;
+}
+
+.blog-post .blog-info a {
+  color: #FF8C88;
+}
+
+.blog-post .blog-info a:hover {
+  text-decoration: none;
+  color: #65D5AF;
+}
+
+.blog-post .text-div {
+  font-size: 18px;
+}
+
+
+.blog-post .btn-rm {
+  color: #fff;
+  background-color: #FF8C88;
+  border: 1px solid #FF8C88;
+}
+
+.blog-post .btn-rm:hover {
+  background-color: #65D5AF;
+  border: 1px solid #65D5AF;
+}
+
+
+.blog-post .blog-share {
+  padding: 10px;
+}
+
+
+
+.blog-post .btn-social {
+  background-color: #65D5AF;
+  color: #FFFFFF;
+  opacity: 0.7;
+  margin: 5px;
+}
+
+.shares
+{
+  display: inline-block;
+}
+
+.blog-post .btn-social:hover {
+  background-color: #FF8C88;
+  color: #FFFFFF;
+  opacity: 1;
+  text-decoration: none;
+}
+
+/*===========================
+    SINGLE POST STYLES
+ ============================*/
+.text-div-single {
+  text-align:left;
+  font-size:18px;
+}
+.text-div-single p {
+  padding-top:20px;
+}
+.text-div-single .form-control {
+  margin-bottom:25px;
+}
+/*===========================
+BLANK PAGE STYLES
+============================*/
+.page-section {
+  background-color: #fff;
+  padding: 20px;
+  min-height:1200px;
+}
+.page-section h1 {
+  text-transform: uppercase;
+  line-height: 50px;
+  color: #FF8C88;
+  font-size: 30px;
+  font-weight: 900;
+}
+/*===========================
+    FOOTER STYLES
+ ============================*/
+
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+}
+
+footer a, footer a:hover {
+  text-decoration: none;
+  color: #65D5AF;
+}
+/*===========================
+MEDIA QUERIES
+============================*/
+@media (min-width: 100px) and (max-width: 520px)  {
+  .logo-div {
+    padding:10px;
+
+  }
+  .logo-div img {
+    width:250px;
+    height:100px;
+  }
+}

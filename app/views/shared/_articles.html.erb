@@ -1,0 +1,33 @@
+<% @articles.each do |r| %>
+    <div class="blog-post">
+      <h1><%= r.title %>
+      </h1>
+      <h4>
+        <% if r.categories.empty? %>
+            No Category
+        <% else %>
+            <%= r.categories.map { |category| "#{category.name}" }.join(" & ") %>
+        <% end %>
+      </h4>
+      <% if r.main_image.exists? %>
+          <%= image_tag r.main_image.url %>
+      <% else %>
+          <%= image_tag image_path("1.jpg"), class: "img-thumbnail img-responsive img-set" %>
+      <% end %>
+      <div class="blog-info">
+        Posted on <strong><%= r.created_at.strftime("%dh %B %Y") %> </strong>by
+        <strong><a href="#"><%= article_author(r) %></a></strong>
+      </div>
+      <div class="text-div">
+        <%= raw r.content.truncate(450) %>
+      </div><br>
+      <a class="btn btn-rm btn-lg" href='<%= article_path(r) %>'>Read Full Story &nbsp;
+        <i class="fa fa-angle-right"></i></a>
+      <div class="blog-share">
+        <div class="facebook shares"><a href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=<%= r.title %>&p[url]=<%= article_url(r) %>" class="btn btn-social"><i class="fa fa-facebook fa-2x"></i></a></div>
+        <div class="twitter shares"><a href="https://twitter.com/share?text=<%= r.title %>&url=<%= article_url(r) %>" class="btn btn-social"><i class="fa fa-twitter fa-2x"></i></a></div>
+        <div class="google shares"><a href="https://plus.google.com/share?url=<%= article_url(r) %>" class="btn btn-social"><i class="fa fa-google-plus fa-2x"></i></a></div>
+    </div>
+    </div>
+    <hr/>
+<% end %>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Newsportal</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= render 'shared/login' %>
+<%= render 'shared/register' %>
+<% if notice %>
+    <div id="notice_wrapper">
+      <p class="notice"><%= notice %></p>
+    </div>
+<% elsif alert %>
+    <div id="error_wrapper">
+      <p class="alert"><%= alert %></p>
+    </div>
+<% end %>
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href='<%= root_path %>'>+ EXPLORE <strong>WORLD </strong></a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right  ">
+        <% if !signed_in? %>
+            <li><a href="#" data-toggle="modal" data-target="#sign_in">LOGIN</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#sign_up">REGISTER</a></li>
+        <% else %>
+            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<!-- NAVBAR CODE END -->
+
+<div class="container">
+  <div class="row logo-div">
+    <div class="col-md-12">
+      <a href='<%= root_path %>'>
+        <%= image_tag image_path('logo.png') %>
+      </a>
+    </div>
+
+  </div>
+  <!-- LOGO DIV END -->
+  <div class="row">
+    <div class="col-md-3">
+      <div class="profile-wrapper">
+        <div class="profile-inner">
+          <%= image_tag(image_path('girl.jpg'), class: 'small-thumb') %>
+        </div>
+        <div class="description">
+          <h3> Elena Tkachenko</h3>
+          <h5><strong> Journalist &amp; Redactor </strong></h5>
+
+          <p>
+            Pellentesque elementum dapibus convallis.
+            Vivamus eget finibus massa.
+          </p>
+          <hr>
+          <a href="http://vk.com/id27164361" class="btn btn-info btn-block" target="_blank">See Full Profile + </a>
+        </div>
+      </div>
+      <hr/>
+      <div class="subscribe-div">
+        <h5>
+          SUBSCRIBE US NOW !
+        </h5>
+
+        <hr>
+        <br>
+
+        <div class="form-group">
+          <%= simple_form_for(MailSubscription.new) do |f| %>
+              <%= f.text_field :email, placeholder: 'Enter Your Email Here', class: 'form-control' %><br>
+              <%= f.submit 'SUBSCRIBE NOW ', class: 'btn btn-info btn-lg btn-block' %>
+          <% end %>
+        </div>
+      </div>
+      <hr/>
+      <%= render 'shared/categories' %>
+      <hr/>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Tag Cloud
+        </div>
+        <div class="panel-body set-tag">
+          <a href="#" class="btn btn-default btn-xs"> Tech </a>
+          <a href="#" class="btn btn-default btn-xs"> Info </a>
+          <a href="#" class="btn btn-default btn-xs"> Insurance </a>
+          <a href="#" class="btn btn-default btn-xs"> BMW </a>
+          <a href="#" class="btn btn-default btn-xs"> Tata </a>
+          <a href="#" class="btn btn-default btn-xs"> Bootstrap </a>
+          <a href="#" class="btn btn-default btn-xs"> Design </a>
+          <a href="#" class="btn btn-default btn-xs"> Website </a>
+          <a href="#" class="btn btn-default btn-xs"> Go </a>
+          <a href="#" class="btn btn-default btn-xs"> Design Bootstrap </a>
+          <a href="#" class="btn btn-default btn-xs"> BMW </a>
+          <a href="#" class="btn btn-default btn-xs"> Tata </a>
+          <a href="#" class="btn btn-default btn-xs"> Bootstrap </a>
+          <a href="#" class="btn btn-default btn-xs"> Nothing </a>
+          <a href="#" class="btn btn-default btn-xs"> Tata </a>
+          <a href="#" class="btn btn-default btn-xs"> Bootstrap </a>
+          <a href="#" class="btn btn-default btn-xs"> Design </a>
+          <a href="#" class="btn btn-default btn-xs"> Website </a>
+          <a href="#" class="btn btn-default btn-xs"> Go </a>
+          <a href="#" class="btn btn-default btn-xs"> Design Bootstrap </a>
+
+        </div>
+      </div>
+
+      <!-- SIDEBAR SECTION END -->
+    </div>
+    <%= yield %>
+  </div>
+  <footer>
+    &copy 2015 WhatsNew | by <a href="#" target="_blank">Eugene Tkachenko</a>
+  </footer>
+</div>
+</div>
+</body>
+</html>

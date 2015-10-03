@@ -1,0 +1,13 @@
+<div class="cat-list">
+  <div class="list-group">
+    <a href="#" class="list-group-item disabled">
+      Categories
+    </a>
+    <% Category.all.each do |category| %>
+        <a href="<%= magazines_path(category: category.name) %>" class="list-group-item">
+          <span class="badge"><%= category.articles.count %></span>
+          <%= category.name %>
+        </a>
+    <% end %>
+  </div>
+</div>
